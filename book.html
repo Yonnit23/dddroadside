@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Service | DDD Roadside</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"][name="services"]');
+      const totalDisplay = document.getElementById('total-cost');
+
+      const prices = {
+        hub: 200,
+        rotor: 20,
+        brake: 50,
+        lockout: 40,
+        tire: 50,
+        plug: 20,
+        inflate: 15,
+        jump: 30,
+        oil: 25,
+        install: 40
+      };
+
+      function updateTotal() {
+        let total = 25;
+        checkboxes.forEach(cb => {
+          if (cb.checked) total += prices[cb.value] || 0;
+        });
+        totalDisplay.textContent = `$${total.toFixed(2)}`;
+      }
+
+      checkboxes.forEach(cb => cb.addEventListener('change', updateTotal));
+    });
+  </script>
+</head>
+<body>
+  <header class="full-nav">
+    <div class="header-container">
+      <div class="logo-box">
+        <img src="images/DDD2.png" alt="DDD Roadside Logo" class="logo" />
+        <div class="logo-text">
+          <h1><span class="gradient-text">DDD ROADSIDE ASSISTANCE</span></h1>
+          <p>Mobile Mechanic Services</p>
+        </div>
+      </div>
+      <nav class="main-menu">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#booking">Book Now</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </div>
+  </header>
+
+  <section class="section" id="booking">
+    <h2><span class="white-left">Book a</span> <span class="gradient-text">Service</span></h2>
+    <p class="subheading">Schedule your regular maintenance or non-urgent repairs with us.</p>
+
+    <div class="form-container">
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="serviceType">Service Type</label>
+            <select id="serviceType" name="serviceType">
+              <option value="routine">Routine Service</option>
+              <option value="emergency">Emergency Service</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="time">Time Slot</label>
+            <select id="time" name="time">
+              <option value="9am">9:00 AM</option>
+              <option value="11am">11:00 AM</option>
+              <option value="1pm">1:00 PM</option>
+              <option value="3pm">3:00 PM</option>
+              <option value="5pm">5:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="vehicle">Vehicle</label>
+            <input type="text" id="vehicle" name="vehicle" placeholder="e.g., 2022 Toyota Camry">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="grid-column: span 2;">
+            <label for="location">Your Location</label>
+            <input type="text" id="location" name="location" placeholder="e.g., 123 Main St, Houston TX">
+          </div>
+        </div>
+
+        <h3>Select Services Needed</h3>
+        <div class="alt-services-list two-column">
+          <label class="alt-service-item"><input type="checkbox" name="services" value="hub"><span>Hub Bearing Replacement</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="rotor"><span>Rotor Replacement</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="brake"><span>Brake Pad Replacement</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="lockout"><span>Lockout Service</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="tire"><span>Tire Change</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="plug"><span>Tire Plug</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="inflate"><span>Tire Inflation</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="jump"><span>Battery Jump Start</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="oil"><span>Oil Change</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="install"><span>Battery Installation</span></label>
+        </div>
+
+        <div class="total-display">Estimated Total (incl. $25 service fee): <strong id="total-cost">$25.00</strong></div>
+        <button type="submit">Book Appointment</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bottom">
+      &copy; 2025 DDD Roadside Assistance. All rights reserved
+    </div>
+  </footer>
+
+  <script>
+  const hamburger = document.getElementById('hamburger');
+  const mainMenu = document.getElementById('mainMenu');
+
+  hamburger.addEventListener('click', () => {
+    mainMenu.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
