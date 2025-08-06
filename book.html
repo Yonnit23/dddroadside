@@ -6,9 +6,38 @@
   <title>Book a Service | DDD Roadside</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"][name="services"]');
+      const totalDisplay = document.getElementById('total-cost');
+
+      const prices = {
+        hub: 200,
+        rotor: 20,
+        brake: 50,
+        lockout: 40,
+        tire: 50,
+        plug: 20,
+        inflate: 15,
+        jump: 30,
+        oil: 25,
+        install: 40
+      };
+
+      function updateTotal() {
+        let total = 25;
+        checkboxes.forEach(cb => {
+          if (cb.checked) total += prices[cb.value] || 0;
+        });
+        totalDisplay.textContent = `$${total.toFixed(2)}`;
+      }
+
+      checkboxes.forEach(cb => cb.addEventListener('change', updateTotal));
+    });
+  </script>
 </head>
 <body>
-  <header class="full-nav">
+    <header class="full-nav">
     <div class="header-container">
       <div class="logo-box">
         <img src="images/DDD2.png" alt="DDD Roadside Logo" class="large-logo" />
@@ -18,116 +47,105 @@
         </div>
       </div>
 
-       <!-- Hamburger Icon -->
+      <!-- Hamburger Icon -->
       <div class="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
 
-       <!-- Navigation Links -->
+      <!-- Navigation Links -->
       <nav class="main-menu">
-        <a href="#services">Services</a>
-        <a href="book.html">Book Now</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#booking">Book Now</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
-     
-  <!-- Hero Section with Background Image -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Roadside Help <br><span class="gradient-text">When You Need It Most</span></h1>
-      <p>Fast, reliable mobile mechanics for jump starts, tire changes, lockouts, and more. Your safety is our priority.</p>
-      <div class="hero-buttons">
-        <a href="book.html" class="btn primary">Get Help Now</a>
-        <a href="book.html" class="btn secondary">Book Appointment</a>
       </div>
+      </header>
+
+  <section class="section" id="booking">
+    <h2><span class="white-left">Book a</span> <span class="gradient-text">Service</span></h2>
+    <p class="subheading">Schedule your regular maintenance or non-urgent repairs with us.</p>
+
+    <div class="form-container">
+      <form action="https://hook.us2.make.com/rvz4tlou2fhx3o0comrzslgewzswsq7o" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="serviceType">Service Type</label>
+            <select id="serviceType" name="serviceType">
+              <option value="routine">Routine Service</option>
+              <option value="emergency">Emergency Service</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="time">Time Slot</label>
+            <select id="time" name="time">
+              <option value="9am">9:00 AM</option>
+              <option value="11am">11:00 AM</option>
+              <option value="1pm">1:00 PM</option>
+              <option value="3pm">3:00 PM</option>
+              <option value="5pm">5:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="vehicle">Vehicle</label>
+            <input type="text" id="vehicle" name="vehicle" placeholder="e.g., 2022 Toyota Camry">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="grid-column: span 2;">
+            <label for="location">Your Location</label>
+            <input type="text" id="location" name="location" placeholder="e.g., 123 Main St, Houston TX">
+          </div>
+        </div>
+
+        <h3>Select Services Needed</h3>
+        <div class="alt-services-list two-column">
+          <label class="alt-service-item"><input type="checkbox" name="services" value="hub"><span>Hub Bearing Replacement</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="rotor"><span>Rotor Replacement</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="brake"><span>Brake Pad Replacement</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="lockout"><span>Lockout Service</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="tire"><span>Tire Change</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="plug"><span>Tire Plug</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="inflate"><span>Tire Inflation</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="jump"><span>Battery Jump Start</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="oil"><span>Oil Change</span></label>
+          <label class="alt-service-item"><input type="checkbox" name="services" value="install"><span>Battery Installation</span></label>
+        </div>
+
+        <div class="total-display">Estimated Total (incl. $25 service fee): <strong id="total-cost">$25.00</strong></div>
+        <button type="submit">Book Appointment</button>
+      </form>
     </div>
   </section>
 
-    <section class="section" id="services">
-    <h2><span class="white-left">Our Core</span> <span class="gradient-text">Services</span></h2>
-    <p class="subheading">Fast, professional roadside assistance to get you back on the road.</p>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Hub Bearing Replacement</h3>
-        <p>Bolt-in hub bearing assembly replacement.</p>
-        <p class="price">$200 / tire</p>
-        <p class="time">60-90 min</p>
-      </div>
-      <div class="card">
-        <h3>Rotor Replacement</h3>
-        <p>Added to brake pad service for rotor replacement.</p>
-        <p class="price">+ $20 / side</p>
-        <p class="time">15-30 min extra</p>
-      </div>
-      <div class="card">
-        <h3>Brake Pad Replacement</h3>
-        <p>Professional brake pad replacement service.</p>
-        <p class="price">$30 - $50 / side</p>
-        <p class="time">45-60 min</p>
-      </div>
-      <div class="card">
-        <h3>Lockout Service</h3>
-        <p>Locked out? Professional lockout assistance.</p>
-        <p class="price">$40</p>
-        <p class="time">15-25 min</p>
-      </div>
-      <div class="card">
-        <h3>Tire Change</h3>
-        <p>We will replace your flat tire with your spare.</p>
-        <p class="price">$50</p>
-        <p class="time">20-35 min</p>
-      </div>
-      <div class="card">
-        <h3>Tire Plug</h3>
-        <p>Repair for minor tire punctures to get you back on the road.</p>
-        <p class="price">$20</p>
-        <p class="time">15-25 min</p>
-      </div>
-      <div class="card">
-        <h3>Tire Inflation</h3>
-        <p>Low on air? We'll inflate your tires to the correct pressure.</p>
-        <p class="price">$15</p>
-        <p class="time">5-10 min</p>
-      </div>
-      <div class="card">
-        <h3>Battery Jump Start</h3>
-        <p>Dead battery? We'll get you running in minutes.</p>
-        <p class="price">$30</p>
-        <p class="time">15-30 min</p>
-      </div>
-      <div class="card">
-        <h3>Oil Change</h3>
-        <p>Quick and clean oil and filter change.</p>
-        <p class="price">$25</p>
-        <p class="time">25-40 min</p>
-      </div>
-      <div class="card">
-        <h3>Service Fee</h3>
-        <p>A standard fee for all service calls, covering travel and initial assessment.</p>
-        <p class="price">$25</p>
-        <p class="time">N/A</p>
-      </div>
-      <div class="card">
-        <h3>Battery Installation</h3>
-        <p>Professional installation of your new car battery. Customer must provide the battery.</p>
-        <p class="price">$40</p>
-        <p class="time">15-20 min</p>
-      </div>
-    </div>
-  </section>
-
-   <section class="contact" id="contact">
-    <h2><span class="gradient-text">Contact Us</span></h2>
-    <p>Email: <a href="mailto:dddroadhelp@gmail.com">dddroadhelp@gmail.com</a></p>
-    <p>Hours: Mon - Sun, 24/7 Emergency Services</p>
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?..." allowfullscreen loading="lazy"></iframe>
-    </div>
-  </section>
-
-  <footer>
+ <footer>
     <div>
       <h3><span class="gradient-text">🔧 DDD Roadside Assistance</span></h3>
       <p>Professional mobile mechanic and roadside assistance service in the Cincinnati Tri-State Area.</p>
@@ -156,18 +174,17 @@
     </div>
   </footer>
 
-  <div class="footer-bottom">
+   <div class="footer-bottom">
     &copy; 2025 DDD Roadside Assistance. All rights reserved.
   </div>
 
   <script>
-  const hamburger = document.querySelector('.hamburger');
-  const menu = document.querySelector('.main-menu');
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.main-menu');
 
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('open');
-  });
-</script>
-
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
