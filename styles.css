@@ -616,54 +616,41 @@ button[type="submit"]:hover {
 /* Responsive Hamburger Icon */
 .hamburger {
   display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
 }
 
 /* === Responsive Navigation Styles === */
 @media (max-width: 768px) {
   .main-menu {
-    display: none; /* hide desktop nav on mobile */
+    display: none;
   }
 
   .navbar {
-    display: none; /* hidden by default */
-  }
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.95);
+  padding: 1rem;
+  border-radius: 12px;
+  z-index: 999;
+}
 
-  .navbar.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 1rem;
-    background-color: rgba(0, 0, 0, 0.95);
-    padding: 1rem;
-    border-radius: 12px;
-    z-index: 999;
-  }
+.navbar a {
+  margin: 0.5rem 0;
+  color: white;
+  text-decoration: none;
+}
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 1rem;
-    background-color: rgba(0, 0, 0, 0.95);
-    padding: 1rem;
-    border-radius: 12px;
-    z-index: 999;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links a {
-    margin: 0.5rem 0;
-    color: white;
-  }
+.navbar.active {
+  display: flex;
+}
 
   .hamburger {
     display: block;
-    cursor: pointer;
   }
 
   .header-container {
