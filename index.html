@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book a Service | DDD Roadside</title>
+  <title>DDD Roadside Assistance</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <header class="full-nav">
@@ -18,19 +18,21 @@
         </div>
       </div>
 
-       <!-- Hamburger Icon -->
+      <!-- Hamburger Icon -->
       <div class="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
 
-       <!-- Navigation Links -->
+      <!-- Navigation Menu -->
       <nav class="main-menu">
-        <a href="#services">Services</a>
+        <a href="index.html#services">Services</a>
         <a href="book.html">Book Now</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
+    </div>
+  </header>
      
   <!-- Hero Section with Background Image -->
   <section class="hero">
@@ -156,18 +158,17 @@
     </div>
   </footer>
 
-  <div class="footer-bottom">
+   <div class="footer-bottom">
     &copy; 2025 DDD Roadside Assistance. All rights reserved.
   </div>
 
   <script>
-  const hamburger = document.querySelector('.hamburger');
-  const menu = document.querySelector('.main-menu');
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.main-menu');
 
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('open');
-  });
-</script>
-
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
