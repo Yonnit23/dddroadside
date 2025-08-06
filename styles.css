@@ -130,6 +130,37 @@ nav a:hover {
   width: 100%;
 }
 
+/* === Updated Mobile Nav Styles === */
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+.nav-links li {
+  margin-bottom: 1rem;
+}
+
+.nav-links li:last-child {
+  margin-bottom: 0;
+}
+
+.nav-links a {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
 
 /* Sections */
 .section {
@@ -582,42 +613,30 @@ button[type="submit"]:hover {
   opacity: 0.95;
 }
 
-/* Hamburger Icon */
+/* Responsive Hamburger Icon */
 .hamburger {
   display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  z-index: 1001;
 }
 
-.hamburger span {
-  height: 3px;
-  width: 25px;
-  background: white;
-  display: block;
-  border-radius: 2px;
-}
-
-/* Mobile Nav Styles */
+/* === Responsive Navigation Styles === */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .main-menu {
+  .nav-links {
     display: none;
     flex-direction: column;
-    background: #0A0A0A;
-    width: 100%;
-    padding: 1rem;
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 1rem;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 1rem;
+    border-radius: 12px;
     z-index: 999;
   }
 
-  .main-menu.open {
+  .main-menu {
+  display: none;
+  }
+
+  .nav-links.active {
     display: flex;
   }
 
@@ -668,4 +687,46 @@ footer h3 a:hover {
 
 .logo-text a:hover {
   opacity: 0.9;
+}
+
+/* Desktop View */
+@media (min-width: 769px) {
+  .navbar {
+    display: none; /* hide mobile nav */
+  }
+
+  .hamburger {
+    display: none; /* hide hamburger icon */
+  }
+
+  .main-menu {
+    display: flex; /* show desktop nav */
+    gap: 2rem;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .main-menu {
+    display: none; /* hide desktop nav on mobile */
+  }
+
+  .navbar {
+    display: none; /* hidden by default, toggled with JS */
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-links a {
+    margin: 0.5rem 0;
+    color: white;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
 }
