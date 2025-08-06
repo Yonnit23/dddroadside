@@ -49,26 +49,23 @@
     </div>
 
     <!-- Desktop Nav -->
-    <nav class="main-menu">
+<nav class="main-menu">
   <a href="index.html">Home</a>
   <a href="book.html">Book</a>
   <a href="index.html#services">Services</a>
   <a href="index.html#contact">Contact</a>
 </nav>
 
-    <!-- Hamburger Icon (Mobile only) -->
-    <div class="hamburger" id="hamburger">&#9776;</div>
-  </div>
+<!-- Hamburger Icon (Mobile only) -->
+<div class="hamburger" id="hamburger">&#9776;</div>
 
-  <!-- Mobile Nav -->
-  <nav class="navbar">
-    <ul class="nav-links" id="nav-links">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="book.html">Book</a></li>
-  <li><a href="index.html#services">Services</a></li>
-  <li><a href="index.html#contact">Contact</a></li>
-</ul>
-  </nav>
+<!-- Mobile Nav -->
+<nav class="navbar" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="book.html">Book</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
 </header>
 
   <section class="section" id="booking">
@@ -188,12 +185,12 @@
 
   <script>
   const hamburger = document.getElementById('hamburger');
-const navbar = document.querySelector('.navbar');
+  const mobileNav = document.getElementById('mobile-nav');
 
-hamburger.addEventListener('click', () => {
-  navbar.classList.toggle('active');
-  hamburger.innerHTML = navbar.classList.contains('active') ? '&times;' : '&#9776;';
-});
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('active');
+    hamburger.innerHTML = mobileNav.classList.contains('active') ? '&times;' : '&#9776;';
+  });
 </script>
 </body>
 </html>
