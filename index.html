@@ -9,30 +9,38 @@
 </head>
 <body>
   <header class="full-nav">
-    <div class="header-container">
-      <div class="logo-box">
-        <img src="images/DDD2.png" alt="DDD Roadside Logo" class="large-logo" />
-        <div class="logo-text">
-          <h1><span class="gradient-text">DDD ROADSIDE ASSISTANCE</span></h1>
-          <p>Mobile Mechanic Services</p>
-        </div>
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo-box">
+      <img src="images/DDD2.png" alt="DDD Roadside Logo" class="large-logo" />
+      <div class="logo-text">
+        <h1><span class="gradient-text">DDD ROADSIDE ASSISTANCE</span></h1>
+        <p>Mobile Mechanic Services</p>
       </div>
-
-      <!-- Hamburger Icon -->
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <!-- Navigation Menu -->
-      <nav class="main-menu">
-        <a href="index.html#services">Services</a>
-        <a href="book.html">Book Now</a>
-        <a href="index.html#contact">Contact</a>
-      </nav>
     </div>
-  </header>
+
+    <!-- Desktop Nav -->
+    <nav class="main-menu">
+      <a href="index.html">Home</a>
+      <a href="book.html">Book</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Hamburger Icon (Mobile only) -->
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav class="navbar">
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="book.html">Book</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
      
   <!-- Hero Section with Background Image -->
   <section class="hero">
@@ -163,12 +171,13 @@
   </div>
 
   <script>
-    const hamburger = document.querySelector('.hamburger');
-    const menu = document.querySelector('.main-menu');
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
 
-    hamburger.addEventListener('click', () => {
-      menu.classList.toggle('open');
-    });
-  </script>
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.innerHTML = navLinks.classList.contains('active') ? '&times;' : '&#9776;';
+  });
+</script>
 </body>
 </html>
