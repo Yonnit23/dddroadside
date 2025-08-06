@@ -582,20 +582,12 @@ button[type="submit"]:hover {
   opacity: 0.95;
 }
 
+/* Hamburger Icon */
 .hamburger {
-  display: none;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-@media (max-width: 768px) {
-  .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 4px;
+  gap: 5px;
   z-index: 1001;
 }
 
@@ -607,7 +599,7 @@ button[type="submit"]:hover {
   border-radius: 2px;
 }
 
-/* Mobile Styles */
+/* Mobile Nav Styles */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -616,14 +608,13 @@ button[type="submit"]:hover {
   .main-menu {
     display: none;
     flex-direction: column;
-    width: 100%;
     background: #0A0A0A;
-    margin-top: 1rem;
+    width: 100%;
     padding: 1rem;
-    gap: 1rem;
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 999;
   }
 
   .main-menu.open {
@@ -633,22 +624,6 @@ button[type="submit"]:hover {
   .header-container {
     flex-direction: column;
     align-items: flex-start;
-  }
-}
-}
-
-
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .main-menu {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-top: 1rem;
   }
 
   .hero-content h1 {
@@ -678,7 +653,7 @@ button[type="submit"]:hover {
   .card-grid {
     grid-template-columns: 1fr;
   }
-
+}
 
 .logo-text a:hover,
 footer h3 a:hover {
@@ -693,6 +668,4 @@ footer h3 a:hover {
 
 .logo-text a:hover {
   opacity: 0.9;
-}
-
 }
