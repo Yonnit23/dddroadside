@@ -17,14 +17,21 @@
           <p>Mobile Mechanic Services</p>
         </div>
       </div>
+
+       <!-- Hamburger Icon -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+       <!-- Navigation Links -->
       <nav class="main-menu">
         <a href="#services">Services</a>
         <a href="book.html">Book Now</a>
         <a href="#contact">Contact</a>
       </nav>
-    </div>
-  </header>
-
+     
   <!-- Hero Section with Background Image -->
   <section class="hero">
     <div class="hero-overlay"></div>
@@ -113,8 +120,7 @@
 
    <section class="contact" id="contact">
     <h2><span class="gradient-text">Contact Us</span></h2>
-    <p>Email: <a href="mailto:info@dddroadside.com">info@dddroadside.com</a></p>
-    <p>Phone: <a href="tel:+18322008870">(832) 200-8870</a></p>
+    <p>Email: <a href="mailto:dddroadhelp@gmail.com">dddroadhelp@gmail.com</a></p>
     <p>Hours: Mon - Sun, 24/7 Emergency Services</p>
     <div class="map-container">
       <iframe src="https://www.google.com/maps/embed?..." allowfullscreen loading="lazy"></iframe>
@@ -133,10 +139,10 @@
       <p><a href="#">Reviews</a></p>
       <p><a href="#services">Our Services</a></p>
       <div class="social-icons">
-        <a href="https://instagram.com/dddroadside" target="_blank">
+        <a href="https://www.instagram.com/dddroadhelp?igsh=MXYxZnJtdXM4ZXIzYQ==" target="_blank">
           <img src="images/instagram.png" alt="Instagram" style="height: 24px; width: 24px; margin-right: 10px;" class="social-icon"/>
         </a>
-        <a href="https://facebook.com/dddroadside" target="_blank">
+        <a href="https://www.facebook.com/share/1FGJLVFpzY/?mibextid=wwXIfr" target="_blank">
           <img src="images/facebook.png" alt="Facebook" style="height: 24px; width: 24px;" class="social-icon" />
         </a>
       </div>
@@ -153,5 +159,15 @@
   <div class="footer-bottom">
     &copy; 2025 DDD Roadside Assistance. All rights reserved.
   </div>
+
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const menu = document.querySelector('.main-menu');
+
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+</script>
+
 </body>
 </html>
